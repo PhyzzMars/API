@@ -1,30 +1,20 @@
+import json
+
+
 class PhyzzMars:
 	# TODO: add all the units and add more question keywords
 	UNITS = {"m": "distance", "s": "time", "m/s": "velocity", "m/s2": "acceleration"}
 	QUESTION_KEYWORDS = ["what", "determine", "calculate", "find"]
-	FORMULAS = [
-		{
-			"givens": ["acceleration", "time"],
-			"unknowns": ["distance"],
-			"solution": "0.5*acceleration*time**2"
-		},
-		{
-			"givens": ["distance", "time"],
-			"unknowns": ["acceleration"],
-			"solution": "2*distance/time**2"
-		},
-		{
-			"givens": ["acceleration", "distance"],
-			"unknowns": ["time"],
-			"solution": "(2*distance/acceleration)**(1/2)"
-		}
-	]
+
 
 
 	def __init__(self, text):
 		self.text = text
 		self.givens = {}
 		self.unknowns = []
+		
+		data = open("formulas.json")
+		self.FORMULAS = json.load(data)["formulas"]
 
 
 	# TODO: add more
