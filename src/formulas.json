@@ -1,19 +1,19 @@
 {
-    "formulas": [
-        {
-			"givens": ["acceleration", "time"],
-			"unknowns": ["distance"],
-			"solution": "0.5*acceleration*time**2"
-		},
-		{
-			"givens": ["distance", "time"],
-			"unknowns": ["acceleration"],
-			"solution": "2*distance/time**2"
-		},
-		{
-			"givens": ["acceleration", "distance"],
-			"unknowns": ["time"],
-			"solution": "(2*distance/acceleration)**(1/2)"
-		}
-    ]
+  "formulas": [
+    {
+      "givens": ["acceleration", "time"],
+      "unknown": "distance",
+      "solution": "0.5*acceleration*time**2"
+    },
+    {
+      "givens": ["distance", "time"],
+      "unknown": "acceleration",
+      "solution": "2*distance/time**2"
+    },
+    {
+      "givens": ["acceleration", "distance"],
+      "unknown": "time",
+      "solution": "(2*distance/acceleration)**(1/2)"
+    }
+  ]
 }

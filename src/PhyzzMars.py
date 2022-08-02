@@ -7,7 +7,6 @@ class PhyzzMars:
 	QUESTION_KEYWORDS = ["what", "determine", "calculate", "find"]
 
 
-
 	def __init__(self, text):
 		self.text = text
 		self.givens = {}
@@ -55,13 +54,16 @@ class PhyzzMars:
 			print(self.givens, self.unknowns)
 			for formula in self.FORMULAS:
 				givens = list(self.givens.keys())
-				if formula["givens"] == givens and formula["unknowns"] == self.unknowns:
-					solution = formula["solution"]
-					for given in givens:
-						solution = solution.replace(given, str(self.givens[given]))
-					result = eval(solution)
-					print(result)
-					return result
+				results = []
+				for unknown in self.unknowns:
+					if formula["givens"] == givens and formula["unknown"] == unknown:
+						solution = formula["solution"]
+						for given in givens:
+							solution = solution.replace(given, str(self.givens[given]))
+						result = eval(solution)
+						results.append(result)
+						print(result)
+				return results
 
 
 		else:
