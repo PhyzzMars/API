@@ -12,8 +12,8 @@ class PhyzzMars:
 		self.givens = {}
 		self.unknowns = []
 		
-		data = open("formulas.json")
-		self.FORMULAS = json.load(data)["formulas"]
+		with open("formulas.json") as data:
+			self.FORMULAS = json.load(data)["formulas"]
 
 
 	# TODO: add more
